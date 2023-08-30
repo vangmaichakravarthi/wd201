@@ -1,58 +1,87 @@
-const http = require("http");
+/*const http = require("http");
 const fs = require("fs");
-const minimist = require("minimist");
 
-const args = minimist(process.argv.slice(2)); // Parse command-line arguments
+fs.readFile("home.html", (err, home) => {
+  console.log(home.toString());
+});
 
-let homeContent = "";
-let projectContent = "";
-let projecContent = "";
 fs.readFile("home.html", (err, home) => {
   if (err) {
     throw err;
   }
-  homeContent = home;
+  http
+    .createServer((request, response) => {
+      response.writeHeader(200, { "Content-Type": "text/html" });
+      response.write(home);
+      response.end();
+    })
+    .listen(2000);
 });
+*/
+const http = require("http")
+const fs = require("fs")
+
+const z = require("minimist");
+const fmz=z(process.argv.slice(2))
+
+
+//const port = process.env.PORT || 3000
+
+let homeContent = ""
+let projectContent = ""
+let registrationContent = ""
+let registerindexContent = ""
+
+fs.readFile("home.html", (err, home) => {
+  if (err) {
+    throw err
+  }
+  homeContent = home
+})
 
 fs.readFile("project.html", (err, project) => {
   if (err) {
-    throw err;
+    throw err
   }
-  projectContent = project;
-});
+  projectContent = project
+})
 
 fs.readFile("registration.html", (err, registration) => {
   if (err) {
-    throw err;
+    throw err
   }
-  projecContent = registration;
-});
-const port = args.port || 5001; // Use the supplied port or default to 3006
+  registrationContent = registration
+})
 
-const server = http.createServer((request, response) => {
-  let url = request.url;
-  response.setHeader("Content-Type", "text/html");
+fs.readFile("registerindex.js", (err, registerindex) => {
+  if (err) {
+    throw err
+  }
+  registerindexContent = registerindex
+})
 
-  switch (url) {
-    
-    case "/project":
-        response.write(projectContent);
-      
+http
+  .createServer((request, response) => {
+    let url = request.url
+    response.writeHeader(200, { "Content-Type": "text/html" })
+    switch (url) {
+      case "/project":
+        response.write(projectContent)
+        response.end()
         break;
-        case "/registration":
-        response.write(projecContent);
-       
+      case "/registration":
+        response.write(registrationContent)
+        response.end()
+        break;
+      case "/registerindex":
+        response.write(registerindexContent)
+        response.end()
         break;
       default:
-        response.write(homeContent);
-      
+        response.write(homeContent)
+        response.end()
         break;
-  }
-
-  response.end();
-});
-
-server.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
+    }
+  })
+  .listen(fmz.port)
 
