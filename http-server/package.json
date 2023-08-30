@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Madhuri",
+  "author": "s_meghana_reddy",
   "license": "ISC",
   "dependencies": {
     "eslint": "^8.47.0",
