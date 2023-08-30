@@ -1,89 +1,71 @@
-<style>
-    .container {
-      height:50%;
-      width:35%;
-      margin: 0 auto;
-      padding: 25px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      line-height: 1.0;
-    }
-    .container1{
-      height:58%;
-      width:52%;
-      margin: 0 auto;
-      padding: 15px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      line-height: 1.5;
-    }
-    label {
-          display: inline-block;
-          width: 100px; 
-          margin-right: 10px; 
-          font-weight: bold;
-        }
-        input {
-          padding: 8px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-        }
-       .move-left
-       {
-          float:left;
-       }
-       button{
-          padding-top:6px;
-       }
-       table {
-          width: 100%;
-          border-collapse: 1px;
-        }
-    
-        th, td {
-          padding: 8px;
-          border-bottom: 1px solid #ccc;
-          text-align: center;
-        }
-    
-        th {
-          background-color: #007bff;
-          color: #fff;
-        }
-    </style>
-    <body>
-       <center> 
-          <form id="UserDetails">
-             <div class="container">
-           <center> <h1> Registration form </h1></center>  
-            <label for="name">Name</label>
-            <input required type="text" id="name" name="name" placeholder="Enter full name">
-          <br>
-          <br>
-            <label for="email">Email</label>
-            <input required type="email" id="email" name="email" placeholder="Enter email">
-         <br>
-         <br>
-            <label for="password">Password</label>
-            <input required type="password" id="password" name="password" placeholder="Enter password">
-         <br>
-         <br>
-            <label for="dob">Date of Birth</label>
-            <input required type="date" id="dob" name="dob" min="1968-08-08" max="2005-08-08"/>
-         <br>
-         <br>
-            <input required type="checkbox" id="acceptTerms" name="acceptTerms" class="move-left">
-            <label for="acceptTerms" class="move-left">Accept Terms & Conditions</label>
-         <br>
-         <br>
-            <button type="submit" style="background-color:green;" class="move-left">Submit</button>
-          </form>      
-          </div>
-          <div class="container1">
-             <center><h2>Entries</h2></center>
-             <div id="User-details"></div>
-          </div>
-       </center>
-         <script src="/index1.js"></script>
-    
-    </body>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE = edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Registration form</title>
+</head>
+
+<body>
+    <div class = "relative flex min-h-screen flex-col justify-centre overflow-hidden py-6 bg-gray-50">
+        <div class = "relative bg-white px-6 pt-5 pb-5 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+            <div class="mx-auto max-w-md">
+                <h2 class="text-3xl text-centre font-bold leading-tight">
+                    Registration form
+                </h2>
+                <div class="divide-y divide-gray-300/50">
+                    <div class="space-y-6 py-8 text-base leading-7 text-gray-600">
+                        <form id="user-form">
+                            <label for="name" class="text-md w-40 initial-block font-medium leading-5 text-gray-700">
+                                Name
+                            </label>
+                            <input required type="text" id="name" name="name" class="bg-gray-100 initial-block rounded-lg shadow-md px-4 py-3 md-5 text-base leading-6 placeholder-gray-500
+                            focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                                placeholder="Enter full name"></br><br>
+
+                            <label for="email" class="text-md w-40 initial-block font-medium leading-5 text-gray-700">
+                                Email
+                            </label>
+                            <input required type="email" id="email" name="email" class="bg-gray-100 initial-block rounded-lg shadow-md px-4 py-3 md-5 text-base leading-6 placeholder-gray-500
+                            focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                                placeholder="Enter email"></br><br>
+
+                            <label for="password" class="text-md w-40 initial-block font-medium leading-5 text-gray-700">
+                                Password
+                            </label>
+                            <input required type="password" id="password" name="password" class="bg-gray-100 initial-block rounded-lg shadow-md px-4 py-3 md-5 text-base leading-6 placeholder-gray-500
+                            focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                                placeholder="Enter password"></br><br>
+                            
+                            <label for="dob"  class="text-md w-40 initial-block font-medium leading-5 text-gray-700">
+                                Date of Birth
+                            </label>
+                            <input required type="date" id="dob" name="dob"  min = "1968-08-08" max="2005-08-08" class="bg-gray-100 initial-block rounded-lg shadow-md px-4 py-3 md-5 text-base leading-6 placeholder-gray-500
+                            focus:invalid:border-pink-500 focus:invalid:ring-pink-500"></br><br>
+                            
+                            <label  for = "acceptTerms"
+                                class="text-md w-40 initial-block font-medium leading-5 text-gray-700">
+                                Accept Terms & Conditions
+                            </label>
+                            <input required type="checkbox" id="acceptTerms" name="acceptTerms" 
+                                   class="bg-gray-100 initial-block rounded-lg shadow-md px-4 py-3 md-5 text-base leading-6 placeholder-gray-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"></br><br>
+
+                            <button type="submit"
+                                class="w-fit rounded-lg shadow-lg px-8 py-4 bg-green-500 text-white hover:bg-green-400 focus:outline-none focus:shadow-outline transition duration-300 ease-in-out"></br><br>
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class = "relative bg-white px-6 pt-5 pb-5 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+            <div class="mx-auto text-centre">
+                <h2 class="text-3xl text-centre font-bold leading-tight">Entries</h2>
+                <div class="divide-y divide-gray-300/50" id="user-entries"></div>
+            </div> 
+        </div>
+    </div>
+    <script src="./registerindex"></script>
